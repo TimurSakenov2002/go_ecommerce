@@ -1,0 +1,79 @@
+<title> Products </title>
+
+{{ template "templates/layouts/header.html" .}}
+
+
+<div class="page-wrapper">
+
+  <div class="box-wrapper">
+
+
+    <input type="hidden" id="showresults">
+    {{ range.products}}
+    <div class="flex product-list-row">
+      <div class="pl-img"> <img src="/assets/img"> </div>
+      <div class="pl-content">
+        <h3><a href="javascript:Void(0)">{{.Title}}</a></h3>
+        <h2>{{.Price}} tenge</h2>
+        <ul class="prd-dtl">
+          <li>Made in: Turkey</li>
+        </ul>
+
+
+        <br>
+        <div class="atc-wish flex" style="margin: 10px; padding: 15px">
+          {{if eq .Value 1}}
+          <a class=" flex added-wish" onclick="addwish('{{.ID}}')" id="add_wish{{.ID}}"
+            style="cursor: pointer;"><span></span>Favourite</a>
+          {{else}}
+
+          <a class="flex" onclick="addwish('{{.ID}}')" href="#" id="add_wish{{.ID}}"
+            style="cursor:pointer;"><span></span> Favourite</a>
+
+          {{end}}
+
+          {{if eq .Productcount 1}}
+
+          <button class="cart-button clicked" onclick="addcart('{{.ID}}')">Choose <i class="fa fa-plus"></i> <i
+              class="fa fa-circle-thin"></i> <i class="fa fa-check"></i> </button>
+          {{else}}
+          <button class="cart-button" onclick="addcart('{{.ID}}')"> &nbsp; Choose <i class="fa fa-plus"></i> <i
+              class="fa fa-circle-thin"></i> <i class="fa fa-check"></i> </button>
+          {{end}}
+        </div>
+      </div>
+    </div>
+
+    {{ end }}
+    <p id="snackbar"></p>
+
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+
+
+    const cartButtons = document.querySelectorAll('.cart-button');
+
+    cartButtons.forEach(button => {
+
+      button.addEventListener('click', cartClick);
+
+    });
+
+    function cartClick() {
+      let button = this;
+      button.classList.add('clicked');
+    }
+
+
+
+  });
+</script>
+
+
+
+
+{{ template "templates/layouts/footer.html"}}

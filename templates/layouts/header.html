@@ -1,0 +1,65 @@
+{{ define "templates/layouts/header.html"}}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/responsive_product.css">
+
+
+
+
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="flex header-wrap">
+        <div class="logo"> <a href="javascript:Void(0)"> </a> </div>
+
+        <div class="header-right flex">
+          <div class="flex hdr-card">
+            <a href="/myorders">
+              <span id="snackbar1">{{.orderscount}}</span>  </a> <p style="color: white">Choosen products</p>
+            <p style="margin-left: 350px">Actions:</p>
+            <br>
+          </div>
+
+
+          <div class="login-btn">
+            <nav class="navbar navbar-dark  navbar-expand-sm">
+
+              <div class="collapse navbar-collapse" id="navbar-list-4">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;;">
+                      {{.name}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                      <a class="dropdown-item" href="/index">See the products</a>
+                      <a class="dropdown-item" href="/wishlist">Favourite products</a>
+                      <a class="dropdown-item" href="/signout">Log-out</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+  {{end}}

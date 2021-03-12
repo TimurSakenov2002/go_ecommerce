@@ -1,0 +1,101 @@
+<html>
+<head>
+  <title>Registration</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      min-height: 100vh;
+      background: #eee;
+      display: flex;
+      font-family: sans-serif;
+    }
+    .container{
+      margin: auto;
+      width: 500px;
+      max-width: 90%;
+    }
+    .container form{
+      width: 100%;
+      height: 85%;
+      padding: 20px;
+      background: white;
+      border-radius: 4px;
+      box-shadow: 0 8px 16px rgba(0,0,0,.3);
+    }
+    .container form h1{
+      text-align: center;
+      margin-bottom: 24px;
+      color:#222;
+    }
+    .container form .form-control{
+      width: 100%;
+      height: 40px;
+      background: white;
+      border-radius: 4px;
+      border: 1px solid silver;
+      margin: 10px 0 18px 0;
+      padding: 0 10px;
+    }
+    .container form .btn{
+      margin-left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 34px;
+      border: none;
+      outline: none;
+      background: #27a327;
+      cursor: pointer;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: white;
+      border-radius: 4px;
+      transition: .3s;
+    }
+    .container form .btn:hover{
+      opacity: .7;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <form method="POST" action="/register">
+    <h1>Please register now!</h1><br>
+    <div class="form-group">
+      <label for="FirstName">Username</label>
+      <input type="text" id="FirstName" name="firstname" placeholder="Your username..." class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="Password">Password</label>
+      <input type="text" id="Password" name="password" placeholder="Your password..." class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="EmailId">E-mail</label>
+      <input type="text" id="EmailId" name="email" placeholder="Your e-mail..." class="form-control" required>
+    </div>
+
+    <div class="form-group">
+      <label for="MobileNo">Mobile number</label>
+      <input type="text" id="MobileNo" name="mobile" placeholder="Your mobile number..." class="form-control" required>
+    </div>
+
+
+    <button style="cursor: pointer; height: 30px; width: 100px" id="btn_Register">Register</button>
+  </form>
+  <br><br>
+  <a href="/"><b>Have an account? Log-in</b></a>
+  <br><br>
+</div>
+
+
+</body>
+</html>
+
+
+
