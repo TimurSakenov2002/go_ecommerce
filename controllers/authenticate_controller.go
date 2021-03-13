@@ -164,25 +164,19 @@ func decrypt(encryptedString string, keyString string) (decryptedString string) 
 	key, _ := hex.DecodeString(keyString)
 	enc, _ := hex.DecodeString(encryptedString)
 
-	//Create a new Cipher Block from the key
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		panic(err.Error())
 	}
 
-	//Create a new GCM
 	aesGCM, err := cipher.NewGCM(block)
 	if err != nil {
 		panic(err.Error())
 	}
 
-	//Get the nonce size
 	nonceSize := aesGCM.NonceSize()
 
-	//Extract the nonce from the encrypted data
 	nonce, ciphertext := enc[:nonceSize], enc[nonceSize:]
-
-	//Decrypt the data
 
 	plaintext, err := aesGCM.Open(nil, nonce, ciphertext, nil)
 	if err != nil {
@@ -194,11 +188,9 @@ func decrypt(encryptedString string, keyString string) (decryptedString string) 
 
 func encrypt(stringToEncrypt string, keyString string) (encryptedString string) {
 
-	//Since the key is in string, we need to convert decode it to byteslog.Println(password)
 	key, _ := hex.DecodeString(keyString)
 	plaintext := []byte(stringToEncrypt)
 
-	//Create a new Cipher Block from the key
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		panic(err.Error())
@@ -209,7 +201,6 @@ func encrypt(stringToEncrypt string, keyString string) (encryptedString string) 
 		panic(err.Error())
 	}
 
-	//Create a nonce. Nonce should be from GCM
 	nonce := make([]byte, aesGCM.NonceSize())
 	if _, err = io.ReadFull(rand.Reader, nonce); err != nil {
 		panic(err.Error())
